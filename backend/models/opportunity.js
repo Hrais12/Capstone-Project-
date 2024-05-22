@@ -7,7 +7,7 @@ const opportunitySchema = new mongoose.Schema({
   tag: String,
   price: Number,
   closingDate: String,
-  ExpiringDate: String,
+  expiringDate: String,
 });
 // Declares client model Schema and its properties
 
