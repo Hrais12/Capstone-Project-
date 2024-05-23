@@ -95,6 +95,7 @@ align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 0.1fr;
   text-align: center;  
+  
 }
 
 .dataItem{
@@ -116,7 +117,62 @@ align-items: center;
   width: 70vw;
   margin: 60px;
 }
+
+.addClient{
+  position: relative;
+  left: 70em;
+}
+
+
 /* END clients */
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.modal button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal button:hover {
+  background-color: #0056b3;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* End modal */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

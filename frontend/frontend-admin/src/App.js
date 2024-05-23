@@ -22,6 +22,25 @@ function App() {
 
   const [rentedThisYear, setRentedThisYear] = useState(0);
 
+  const [updateForm, setUpdateForm] = useState({
+    _id: null,
+    name: "",
+    phone: "",
+    email: "",
+    tag: "",
+  });
+
+  const [updateOppForm, setUpdateOppForm] = useState({
+    _id: null,
+    name: "",
+    address: "",
+    status: "",
+    tag: "",
+    price: "",
+    closingDate: "",
+    expiringDate: "",
+  });
+
   const numProperties = () => {
     const currentYear = new Date().getFullYear();
     //   console.log(currentYear);
@@ -60,6 +79,10 @@ function App() {
           setRentedThisYear,
           clients,
           setClients,
+          updateForm,
+          setUpdateForm,
+          updateOppForm,
+          setUpdateOppForm,
         }}
       >
         <Routes>

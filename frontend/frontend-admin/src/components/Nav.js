@@ -16,7 +16,6 @@ function Nav() {
           className="userPic"
         ></img>
         <div>User Name</div>
-        {/* <p>User Name</p> */}
       </div>
       <div className="rightNav">
         <MdLogout /> Logout

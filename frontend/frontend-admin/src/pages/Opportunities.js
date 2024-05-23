@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import { ListingContext } from "../App";
 import { Link } from "react-router-dom";
@@ -6,9 +5,12 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import usePagination from "../util/usePagination";
+import AddOpportunity from "../components/AddOpportunity";
+import UpdateOpportunity from "../components/UpdateOpportunity";
 
 function Opportunities() {
-  const { opportunities } = useContext(ListingContext);
+  const { opportunities, setUpdateOppForm, setOpportunity } =
+    useContext(ListingContext);
 
   const itemsPerPage = 10;
   const {
@@ -23,6 +25,9 @@ function Opportunities() {
 
   return (
     <div className="opportunity">
+      <button className="addClient">Add</button>
+      <AddOpportunity />
+      <UpdateOpportunity />
       <table className="table">
         <thead>
           <th>Name</th>
@@ -43,6 +48,12 @@ function Opportunities() {
               <td className="">$18000</td>
               <td className="">$1200</td>
               <td className="">{opportunity.closingDate}</td>
+              <button onClick={() => setUpdateOppForm({ ...opportunity })}>
+                Edit
+              </button>
+              <button onClick={() => handleClick(opportunity._id)}>
+                Delete
+              </button>
             </tr>
           ))}
         </tbody>
@@ -95,6 +106,19 @@ function Opportunities() {
       </nav>
     </div>
   );
+  async function handleClick(_id) {
+    try {
+      await fetch(`http://localhost:3000/opportunity/${_id}`, {
+        method: "DELETE",
+      });
+      const newOpportunity = opportunities.filter(
+        (opportunity) => opportunity._id !== _id
+      );
+      setOpportunity([...newOpportunity]);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 export default Opportunities;

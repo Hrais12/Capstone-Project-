@@ -1,4 +1,5 @@
-import React from "react";
+import Modal from "react-modal";
+import { useState } from "react";
 import { useContext } from "react";
 import { ListingContext } from "../App";
 import { Link } from "react-router-dom";
@@ -6,9 +7,11 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import usePagination from "../util/usePagination";
+import AddClient from "../components/Addclient";
+import UpdateClient from "../components/UpdateClient";
 
 function Clients() {
-  const { clients } = useContext(ListingContext);
+  const { clients, setUpdateForm, setClients } = useContext(ListingContext);
 
   const itemsPerPage = 10;
   const {
@@ -21,8 +24,25 @@ function Clients() {
     prevPage,
   } = usePagination(clients, itemsPerPage);
 
+  //   const [modal, setModal] = useState(false);
+  //   const toggleModal = () => {
+  //     setModal(!modal);
+  //   };
+
   return (
     <div className="clients">
+      <button className="addClient">Add</button>
+      <AddClient />
+      <UpdateClient />
+      {/* <Modal
+        isOpen={modal}
+        onRequestClose={toggleModal}
+        contentLabel="Add Contact"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <AddClient />
+      </Modal> */}
       <table className="table">
         <thead>
           <th>Name</th>
@@ -37,6 +57,8 @@ function Clients() {
               <td className="">{client.phone}</td>
               <td className="">{client.email}</td>
               <td className="">{client.tag}</td>
+              <button onClick={() => setUpdateForm({ ...client })}>Edit</button>
+              <button onClick={() => handleClick(client._id)}>Delete</button>
             </tr>
           ))}
         </tbody>
@@ -89,6 +111,18 @@ function Clients() {
       </nav>
     </div>
   );
+
+  async function handleClick(_id) {
+    try {
+      await fetch(`http://localhost:3000/client/${_id}`, {
+        method: "DELETE",
+      });
+      const newContact = clients.filter((client) => client._id !== _id);
+      setClients([...newContact]);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 export default Clients;
