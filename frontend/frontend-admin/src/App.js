@@ -11,6 +11,8 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Clients from "./pages/Clients";
 import Opportunities from "./pages/Opportunities";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 
 export const ListingContext = createContext();
 
@@ -20,7 +22,7 @@ function App() {
 
   const [clients, setClients] = useState([]);
 
-  const [rentedThisYear, setRentedThisYear] = useState(0);
+  const [rentedThisYear, setRentedThisYear] = useState([]);
 
   const [updateForm, setUpdateForm] = useState({
     _id: null,
@@ -50,10 +52,12 @@ function App() {
         opportunity.status === "Rented" &&
         closingDate.getFullYear() === currentYear
       );
-    }).length;
+    });
 
     setRentedThisYear(totalRented);
   };
+
+  // console.log(rentedThisYear);
 
   useEffect(() => {
     numProperties();
@@ -69,8 +73,6 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
-      <Sidebar />
       <ListingContext.Provider
         value={{
           opportunities,
@@ -86,7 +88,9 @@ function App() {
         }}
       >
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/opportunities" element={<Opportunities />} />
         </Routes>

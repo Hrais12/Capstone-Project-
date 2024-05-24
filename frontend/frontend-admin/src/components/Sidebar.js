@@ -10,13 +10,13 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <ul>
-        <Link key="home" to="/" className="sidebarLink">
+        <Link key="home" to="/home" className="sidebarLink">
           <li className="sidebarListItem">
             {" "}
             <BsHouseHeart /> Home
           </li>
         </Link>
-        <Link key="dashboard" to="/" className="sidebarLink">
+        <Link key="dashboard" to="/dashboard" className="sidebarLink">
           <li className="sidebarListItem">
             {" "}
             <MdOutlineDashboard /> Dashboard

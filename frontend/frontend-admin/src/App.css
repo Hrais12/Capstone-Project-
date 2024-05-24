@@ -1,3 +1,6 @@
+body{
+  /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);; */
+}
 .App {
   /* text-align: center; */
   display: grid;
@@ -173,6 +176,95 @@ align-items: center;
 
 
 /* End modal */
+
+/* sign up------- */
+.signContainer{
+  display: flex;
+  flex-direction: column;
+   margin-top: 100px;
+   background: #ffffffbc; 
+  padding-bottom: 30px;
+  border-radius: 50px;
+  position: relative;
+  left: 500px;
+  width: 600px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+} 
+
+.signHeader{
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 9px;
+width: 100%;
+margin-top: 30px;
+}
+.signText{
+ color:#3d5d8a;
+font-size: 48px; 
+font-weight: 700;
+}
+.signInputs{
+margin-top: 55px; 
+display: flex;
+flex-direction: column;
+gap: 25px;
+}
+.input{
+  display:flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 80px;
+  background: #eaeaea;
+  border-radius: 6px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+.input input{ 
+  height: 50px;
+   width: 400px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 19px;
+  position: absolute;
+  left: 130px;
+}
+
+.forgotPassword{
+  padding-left: 62px;
+   margin-top: 27px;
+   color:#797979;
+  font-size: 18px;
+} 
+.forgotPassword span{
+  color: #0056b3;
+  cursor: pointer;
+}
+
+.submit-container{
+display: flex;
+gap: 30px;
+margin: 30px auto;
+}
+
+.submit{
+display: flex;
+justify-content: center; 
+align-items: center;
+width: 220px; 
+height: 59px;
+color:#eaeaea;
+background:#0056b3;
+border-radius: 50px; 
+font-size: 19px; 
+font-weight: 700;
+cursor: pointer;
+border: none;
+}
+
+/* ------------- */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

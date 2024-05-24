@@ -48,7 +48,7 @@ const AvgClosed = () => {
   const { rentedThisYear } = useContext(ListingContext);
 
   const totalMonths = new Date().getMonth() + 1;
-  const avgClosed = rentedThisYear / totalMonths;
+  const avgClosed = rentedThisYear.length / totalMonths;
 
   const data = [
     { name: "Category A", value: 20, color: "#ff0000" },
