@@ -1,8 +1,23 @@
 import React from "react";
 
 import { MdMenu, MdLogout } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import { useContext } from "react";
+import { ListingContext } from "../App";
 
 function Nav() {
+  const { loggedUser, setLoggedUser } = useContext(ListingContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await axios.post("http://localhost:3000/logout");
+    console.log(res);
+    navigate("/logout");
+  };
   return (
     <div className="nav">
       <div className="leftNav">
@@ -15,10 +30,12 @@ function Nav() {
           alt="User Name"
           className="userPic"
         ></img>
-        <div>User Name</div>
+        <div>{loggedUser}</div>
       </div>
       <div className="rightNav">
-        <MdLogout /> Logout
+        <button className="logout" type="submit" onClick={handleSubmit}>
+          <MdLogout /> Logout
+        </button>
       </div>
     </div>
   );

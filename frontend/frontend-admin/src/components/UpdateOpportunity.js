@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { ListingContext } from "../App";
+import { RiCloseLargeFill } from "react-icons/ri";
 
-function UpdateOpportunity() {
+function UpdateOpportunity({ close }) {
   const { updateOppForm, setUpdateOppForm } = useContext(ListingContext);
 
   function handleChange(event) {
@@ -29,6 +30,7 @@ function UpdateOpportunity() {
         closingDate: "",
         expiringDate: "",
       });
+      close();
     } catch (error) {
       console.error(error);
     }
@@ -36,58 +38,94 @@ function UpdateOpportunity() {
 
   return (
     <div className="formAdmin">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={updateOppForm.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="address"
-          value={updateOppForm.address}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="tag"
-          placeholder="type"
-          value={updateOppForm.tag}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="status"
-          placeholder="Status"
-          value={updateOppForm.status}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="price"
-          placeholder="Price"
-          value={updateOppForm.price}
-          onChange={handleChange}
-        />
-        <input
-          type="date"
-          name="closingDate"
-          placeholder="Closind Date"
-          value={updateOppForm.closingDate}
-          onChange={handleChange}
-        />
-        <input
-          type="date"
-          name="expiringDate"
-          placeholder="Expiring Date"
-          value={updateOppForm.expiringDate}
-          onChange={handleChange}
-        />
+      <div className="title">
+        {" "}
+        <h5>Update Opportunity</h5>
+        <button onClick={close}>
+          <RiCloseLargeFill />
+        </button>
+      </div>
+      <hr></hr>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-input">
+          Client name
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={updateOppForm.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          propperty address
+          <input
+            type="text"
+            name="address"
+            placeholder="address"
+            value={updateOppForm.address}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Type
+          <input
+            type="text"
+            name="tag"
+            placeholder="type"
+            value={updateOppForm.tag}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Status
+          <input
+            type="text"
+            name="status"
+            placeholder="Status"
+            value={updateOppForm.status}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Listing price
+          <input
+            type="text"
+            name="price"
+            placeholder="Price"
+            value={updateOppForm.price}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Estimated closing date
+          <input
+            type="date"
+            name="closingDate"
+            placeholder="Closind Date"
+            value={updateOppForm.closingDate}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Listing expiration date
+          <input
+            type="date"
+            name="expiringDate"
+            placeholder="Expiring Date"
+            value={updateOppForm.expiringDate}
+            onChange={handleChange}
+          />
+        </div>
         <br />
-        <button type="submit">Edit</button>
+        <div className="creat-btn-container">
+          <button type="submit" className="create-btn">
+            Edit
+          </button>
+          <button onClick={close} className="create-btn">
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

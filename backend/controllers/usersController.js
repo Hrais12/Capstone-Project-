@@ -7,12 +7,13 @@ const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
   // 1. Get Email and Password - [req.body]
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
   // ** Hash Password **
   const hashedPassword = bcrypt.hashSync(password, 8);
 
   // 2.Create User
   const newUser = await User.create({
+    name,
     email,
     password: hashedPassword,
   });
@@ -50,7 +51,7 @@ const login = async (req, res) => {
       // allows only browser and server to read
       sameSite: "lax",
     });
-    res.sendStatus(200);
+    res.status(200).json({ user });
     // Cookie - data that our servers will send to browser and store in cache.
     // Cookies save information about a user's session
     // by default express doesnt read cookies off request body so u need an npm package :cookie-parser

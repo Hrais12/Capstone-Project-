@@ -5,6 +5,8 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ListingContext } from "../App";
 
 function Login() {
   const style = {
@@ -13,7 +15,7 @@ function Login() {
     left: "80px",
     color: "grey",
   };
-
+  const { setLoggedUser } = useContext(ListingContext);
   const navigate = useNavigate();
 
   const [logUser, setLogUser] = useState({
@@ -32,8 +34,9 @@ function Login() {
     e.preventDefault();
 
     const res = await axios.post("http://localhost:3000/login", logUser);
-    console.log(res);
+    console.log(res.data.user.name);
     navigate("/dashboard");
+    setLoggedUser(res.data.user.name);
     setLogUser({
       email: "",
       password: "",

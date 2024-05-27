@@ -6,13 +6,13 @@ import { getOpportunities } from "./util/opportunities-api";
 import { getClients } from "./util/clients-api";
 
 import { Route, Routes } from "react-router-dom";
-import Nav from "./components/Nav";
-import Sidebar from "./components/Sidebar";
+
 import Dashboard from "./pages/Dashboard";
 import Clients from "./pages/Clients";
 import Opportunities from "./pages/Opportunities";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 
 export const ListingContext = createContext();
 
@@ -43,6 +43,7 @@ function App() {
     expiringDate: "",
   });
 
+  const [loggedUser, setLoggedUser] = useState(null);
   const numProperties = () => {
     const currentYear = new Date().getFullYear();
     //   console.log(currentYear);
@@ -85,11 +86,14 @@ function App() {
           setUpdateForm,
           updateOppForm,
           setUpdateOppForm,
+          loggedUser,
+          setLoggedUser,
         }}
       >
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/opportunities" element={<Opportunities />} />

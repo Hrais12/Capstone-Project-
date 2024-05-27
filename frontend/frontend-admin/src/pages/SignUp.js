@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { FiUser } from "react-icons/fi";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -18,6 +19,7 @@ function SignUp() {
   const [users, setUsers] = useState([]);
 
   const [addUser, setAddUser] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -39,6 +41,7 @@ function SignUp() {
     setUsers(() => [...users, res.user]);
     // This adds the new user to the rest of existing db.
     setAddUser({
+      name: "",
       email: "",
       password: "",
     });
@@ -52,6 +55,16 @@ function SignUp() {
       </div>
 
       <div className="signInputs">
+        <div className="input">
+          <FiUser style={style} />
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={addUser.name}
+            onChange={handleChange}
+          />{" "}
+        </div>
         <div className="input">
           <MdOutlineMailOutline style={style} />
           <input
