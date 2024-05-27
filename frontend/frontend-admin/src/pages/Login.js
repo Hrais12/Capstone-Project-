@@ -45,53 +45,55 @@ function Login() {
   };
 
   return (
-    <form className="signContainer" onSubmit={handleSubmit}>
-      <div className="signHeader">
-        <div className="signText">Sign in</div>
-      </div>
-
-      <div className="signInputs">
-        <div className="input">
-          <MdOutlineMailOutline style={style} />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={logUser.email}
-            onChange={handleChange}
-          />{" "}
+    <div className="sign-container">
+      <form className="signContainer" onSubmit={handleSubmit}>
+        <div className="signHeader">
+          <div className="signText">Sign in</div>
         </div>
-      </div>
-      <div className="signInputs">
-        <div className="input">
-          <RiLockPasswordLine style={style} />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={logUser.password}
-            onChange={handleChange}
-          />{" "}
+
+        <div className="signInputs">
+          <div className="input">
+            <MdOutlineMailOutline style={style} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={logUser.email}
+              onChange={handleChange}
+            />{" "}
+          </div>
         </div>
-      </div>
+        <div className="signInputs">
+          <div className="input">
+            <RiLockPasswordLine style={style} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={logUser.password}
+              onChange={handleChange}
+            />{" "}
+          </div>
+        </div>
 
-      <div className="forgotPassword">
-        Forgot Password? <span>Click Here</span>
-      </div>
-      <div className="forgotPassword">
-        Don't have an account?{" "}
-        <Link key="signIn" to="/" className="sidebarLink">
-          <span>Sign Up</span>
-        </Link>
-      </div>
+        <div className="forgotPassword">
+          Forgot Password? <span>Click Here</span>
+        </div>
+        <div className="forgotPassword">
+          Don't have an account?{" "}
+          <Link key="signIn" to="/" className="sidebarLink">
+            <span>Sign Up</span>
+          </Link>
+        </div>
 
-      <div className="submit-container">
-        <button className="submit" type="submit">
-          {" "}
-          Login
-        </button>
-      </div>
-    </form>
+        <div className="submit-container">
+          <button className="submit" type="submit">
+            {" "}
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

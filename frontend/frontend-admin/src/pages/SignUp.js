@@ -49,60 +49,62 @@ function SignUp() {
   };
 
   return (
-    <form className="signContainer" onSubmit={handleSubmit}>
-      <div className="signHeader">
-        <div className="signText">{signUp}</div>
-      </div>
-
-      <div className="signInputs">
-        <div className="input">
-          <FiUser style={style} />
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={addUser.name}
-            onChange={handleChange}
-          />{" "}
+    <div className="sign-container">
+      <form className="signContainer" onSubmit={handleSubmit}>
+        <div className="signHeader">
+          <div className="signText">{signUp}</div>
         </div>
-        <div className="input">
-          <MdOutlineMailOutline style={style} />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={addUser.email}
-            onChange={handleChange}
-          />{" "}
-        </div>
-      </div>
-      <div className="signInputs">
-        <div className="input">
-          <RiLockPasswordLine style={style} />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={addUser.password}
-            onChange={handleChange}
-          />{" "}
-        </div>
-      </div>
 
-      <div className="forgotPassword">
-        Already have an account?{" "}
-        <Link key="signUp" to="/login" className="sidebarLink">
-          <span>Sign in</span>
-        </Link>
-      </div>
+        <div className="signInputs">
+          <div className="input">
+            <FiUser style={style} />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={addUser.name}
+              onChange={handleChange}
+            />{" "}
+          </div>
+          <div className="input">
+            <MdOutlineMailOutline style={style} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={addUser.email}
+              onChange={handleChange}
+            />{" "}
+          </div>
+        </div>
+        <div className="signInputs">
+          <div className="input">
+            <RiLockPasswordLine style={style} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={addUser.password}
+              onChange={handleChange}
+            />{" "}
+          </div>
+        </div>
 
-      <div className="submit-container">
-        <button className="submit" type="submit">
-          {" "}
-          Sign Up
-        </button>
-      </div>
-    </form>
+        <div className="forgotPassword">
+          Already have an account?{" "}
+          <Link key="signUp" to="/login" className="sidebarLink">
+            <span>Sign in</span>
+          </Link>
+        </div>
+
+        <div className="submit-container">
+          <button className="submit" type="submit">
+            {" "}
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

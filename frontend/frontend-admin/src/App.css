@@ -436,16 +436,23 @@ table .client-dropdown{
 margin: 5px;
 }
 
-
 /* END clients */
 
 
 
 /* sign up------- */
+.sign-container{
+  position: absolute;
+  text-align: center;
+ background-image: url(https://images.pexels.com/photos/2501965/pexels-photo-2501965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+ background-size: contain;
+ width: 100%;
+  height: 100%;
+}
 .signContainer{
   display: flex;
   flex-direction: column;
-   margin-top: 100px;
+   margin-top: 60px;
    background: #ffffffbc; 
   padding-bottom: 30px;
   border-radius: 50px;
@@ -527,7 +534,45 @@ font-weight: 700;
 cursor: pointer;
 border: none;
 }
+/* logged out */
+.loggedOut-container{
+  position: absolute;
+  text-align: center;
+ background-image: url(https://images.pexels.com/photos/2501965/pexels-photo-2501965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+ background-size: contain;
+ width: 100%;
+  height: 100%;
+}
+.loggedOut{
+  position: relative;
+  
+top: 300px;
+}
+.loggedOut-title{
+  font-size: xx-large;
+  font-weight: bolder;
+  color: #263043;
+}
+.thnks-loggedOut{
+  font-size: large;
+  font-weight: bolder;
+  margin: 20px;
+  color: #263043;
+}
+.signIn-logeedOut{
+  border-radius: 5px;
+  background-color: #3a629a;
+  color: white;
+  padding: 5px 20px;
+  font-weight: bold;
+  border: none;
+}
 
+.signIn-logeedOut:hover{
+  background-color: #337bdf ;
+ 
+}
+/* End LoggedOut */
 /* ------------- */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
