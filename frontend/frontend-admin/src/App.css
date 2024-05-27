@@ -33,6 +33,11 @@ align-items: center;
 .userPic{
   width: 50px;
   border-radius: 50%;
+  margin-left:60px ;
+}
+.userName{
+  font-size: larger;
+  font-weight: bolder;
 }
 .logout{
  

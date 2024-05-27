@@ -21,16 +21,12 @@ function Nav() {
   return (
     <div className="nav">
       <div className="leftNav">
-        <div className="menuIcon">
-          <MdMenu />
-        </div>
-
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8CI4Jz5PG2qJSA1xpXjcS6IK1a6Jw0w-Ek-DpBSX7NQ&s"
           alt="User Name"
           className="userPic"
         ></img>
-        <div>{loggedUser}</div>
+        <div className="userName">{loggedUser}</div>
       </div>
       <div className="rightNav">
         <button className="logout" type="submit" onClick={handleSubmit}>

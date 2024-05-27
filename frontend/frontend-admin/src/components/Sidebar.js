@@ -10,7 +10,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <ul>
-        <Link key="home" to="/home" className="sidebarLink">
+        <Link key="home" to="" className="sidebarLink">
           <li className="sidebarListItem">
             {" "}
             <BsHouseHeart /> Home

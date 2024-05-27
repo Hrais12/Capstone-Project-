@@ -63,7 +63,7 @@ function Opportunities() {
           <thead>
             <th>Name</th>
             <th>Address</th>
-            <th>type</th>
+            <th>Type</th>
             <th>Status</th>
             <th>Volume</th>
             <th>Commission</th>
