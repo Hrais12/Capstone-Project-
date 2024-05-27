@@ -100,7 +100,7 @@ function Opportunities() {
                             setShowEditModal(true);
                           }}
                         >
-                          Edit
+                          Update
                         </button>
                       </li>
                       <li>

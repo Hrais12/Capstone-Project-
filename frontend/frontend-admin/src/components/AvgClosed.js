@@ -51,8 +51,9 @@ const AvgClosed = () => {
   const avgClosed = rentedThisYear.length / totalMonths;
 
   const data = [
-    { name: "Category A", value: 20, color: "#ff0000" },
-    { name: "Category B", value: 20, color: "#00ff00" },
+    { name: "Category A", value: 5, color: "#ff0000" },
+    { name: "Category B", value: 5, color: "#ffff00" },
+    { name: "Category C", value: 5, color: "#00ff00" },
   ];
   const cx = 300;
   const cy = 100;
@@ -62,7 +63,8 @@ const AvgClosed = () => {
 
   return (
     <div className="goal">
-      <h2>Average closed per month</h2>
+      <h4>Average closed per month</h4>
+      <div></div>
       <PieChart width={400} height={120}>
         <Pie
           dataKey="value"
@@ -82,7 +84,7 @@ const AvgClosed = () => {
         </Pie>
         {needle(value, data, cx, cy, iR, oR, "#d0d000")}
       </PieChart>
-      <div>{avgClosed}</div>
+      <div>{avgClosed} unit</div>
     </div>
   );
 };

@@ -8,13 +8,13 @@ function ActivListing() {
 
   return (
     <div className="activListing">
-      <h2>Active Listing</h2>
+      <h4>Active Listing</h4>
 
       <div className="dataTitle">
-        <h3>Address</h3>
-        <h3>Price</h3>
-        <h3>Status</h3>
-        <h3>Expiration date</h3>
+        <h5>Address</h5>
+        <h5>Price</h5>
+        <h5>Status</h5>
+        <h5>Expiration date</h5>
       </div>
       {opportunities
         .filter((opportunity) => opportunity.status === "Active")

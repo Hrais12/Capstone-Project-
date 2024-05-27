@@ -14,13 +14,13 @@ function Dashboard() {
       <Sidebar />
       <div className="dashboard">
         <div className="performance">
-          <ActivListing />
-          <Goal />
           <AvgClosed />
+          <ActivListing />
         </div>
         <div className="properties">
-          <Rented />
           <NumProperties />
+          <Goal />
+          <Rented />
         </div>
       </div>
     </>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { RiCloseLargeFill } from "react-icons/ri";
 import axios from "axios";
 import { useContext } from "react";
 import { ListingContext } from "../App";
-function AddClient() {
+function AddClient({ close }) {
   const { clients, setClients } = useContext(ListingContext);
 
   const [addClient, setAddClient] = useState({
@@ -34,42 +35,70 @@ function AddClient() {
       tag: "",
     });
     // to reset the form
+    close();
   };
 
   return (
     <div className="formAdmin">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={addClient.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="phone"
-          placeholder="Phone Number"
-          value={addClient.phone}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          value={addClient.email}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="tag"
-          placeholder="Tag"
-          value={addClient.tag}
-          onChange={handleChange}
-        />
+      <div className="title">
+        {" "}
+        <h5> Client Contact Info</h5>
+        <button onClick={close}>
+          <RiCloseLargeFill />
+        </button>
+      </div>
+      <hr></hr>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-input">
+          Client's name
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={addClient.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Client's phone number
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            value={addClient.phone}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Client's email
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            value={addClient.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-input">
+          Client's tag
+          <input
+            type="text"
+            name="tag"
+            placeholder="Tag"
+            value={addClient.tag}
+            onChange={handleChange}
+          />
+        </div>
 
         <br />
-        <button type="submit">Add</button>
+        <div className="creat-btn-container">
+          <button type="submit" className="create-btn">
+            Save
+          </button>
+          <button onClick={close} className="create-btn">
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

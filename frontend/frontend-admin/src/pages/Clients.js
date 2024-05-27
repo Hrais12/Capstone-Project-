@@ -8,6 +8,7 @@ import Nav from "../components/Nav";
 import Sidebar from "../components/Sidebar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { MdOutlineMoreHoriz } from "react-icons/md";
 
 import usePagination from "../util/usePagination";
 import AddClient from "../components/Addclient";
@@ -15,6 +16,10 @@ import UpdateClient from "../components/UpdateClient";
 
 function Clients() {
   const { clients, setUpdateForm, setClients } = useContext(ListingContext);
+
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openAddBtn, setOpenAddBtn] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const itemsPerPage = 10;
   const {
@@ -27,46 +32,83 @@ function Clients() {
     prevPage,
   } = usePagination(clients, itemsPerPage);
 
-  //   const [modal, setModal] = useState(false);
-  //   const toggleModal = () => {
-  //     setModal(!modal);
-  //   };
+  const style = {
+    fontSize: "2em",
+    cursor: "pointer",
+  };
 
   return (
     <>
       <Nav />
       <Sidebar />
       <div className="clients">
-        <button className="addClient">Add</button>
-        <AddClient />
-        <UpdateClient />
-        {/* <Modal
-        isOpen={modal}
-        onRequestClose={toggleModal}
-        contentLabel="Add Contact"
-        className="modal"
-        overlayClassName="overlay"
-      >
-        <AddClient />
-      </Modal> */}
+        <button
+          className="create-btn"
+          onClick={() => setOpenAddBtn(!openAddBtn)}
+        >
+          + Add New Client
+        </button>
+        {openAddBtn && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <AddClient close={() => setOpenAddBtn(false)} />
+            </div>
+          </div>
+        )}
+        {showEditModal && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <UpdateClient close={() => setShowEditModal(false)} />
+            </div>
+          </div>
+        )}
+
         <table className="table">
           <thead>
             <th>Name</th>
             <th>Phone</th>
             <th>Email</th>
-            <th>type</th>
+            <th>Type</th>
           </thead>
           <tbody>
-            {currentItems.map((client) => (
+            {currentItems.map((client, index) => (
               <tr className="">
                 <td className="">{client.name}</td>
                 <td className="">{client.phone}</td>
                 <td className="">{client.email}</td>
                 <td className="">{client.tag}</td>
-                <button onClick={() => setUpdateForm({ ...client })}>
-                  Edit
-                </button>
-                <button onClick={() => handleClick(client._id)}>Delete</button>
+                <td
+                  onClick={() =>
+                    setOpenDropdown(openDropdown === index ? null : index)
+                  }
+                >
+                  <MdOutlineMoreHoriz style={style} />
+                </td>
+                {openDropdown === index && (
+                  <div className="client-dropdown">
+                    <ul>
+                      <li>
+                        <button
+                          className="edit"
+                          onClick={() => {
+                            setUpdateForm({ ...client });
+                            setShowEditModal(true);
+                          }}
+                        >
+                          Update
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="delete"
+                          onClick={() => handleClick(client._id)}
+                        >
+                          Delete
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                )}
               </tr>
             ))}
           </tbody>

@@ -1,7 +1,7 @@
 import React from "react";
 
 function Goal() {
-  return <div>Goal</div>;
+  return <div></div>;
 }
 
 export default Goal;

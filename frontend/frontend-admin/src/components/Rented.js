@@ -7,12 +7,12 @@ function Rented() {
   const { opportunities } = useContext(ListingContext);
   return (
     <div className="rented">
-      <h2>Recently Rented</h2>
+      <h4>Recently Rented</h4>
       <div className="dataTitle">
-        <h3>Address</h3>
-        <h3>Client name</h3>
-        <h3>Price</h3>
-        <h3>Date</h3>
+        <h5>Address</h5>
+        <h5>Client name</h5>
+        <h5>Price</h5>
+        <h5>Date</h5>
       </div>
       {opportunities
         .filter((opportunity) => opportunity.status === "Rented")
