@@ -42,3 +42,7 @@ A comprehensive Real Estate Management System built with React, designed for Age
 
 - Search Functionality: Implement a search feature to allow users to quickly find specific clients or opportunities based on various criteria such as name, address, status
 - Document Management: upload and store documents related to clients and opportunities, such as contracts, agreements, and client records
+
+## GITHUB Link
+
+https://github.com/Hrais12/Capstone-Project-
