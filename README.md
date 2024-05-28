@@ -2,6 +2,8 @@
 
 A full stack comprehensive Real Estate Management System built with React and Node.js, designed for Agents to manage clients and opportunities efficiently. The application includes user authentication, client management, opportunity, and performance tracking features.
 
+![signUp](image-3.png)
+
 ![dashboard](image.png)
 
 ![new-client](image-1.png)
@@ -37,6 +39,17 @@ A full stack comprehensive Real Estate Management System built with React and No
 - Add Opportunity: Click the "Add New Opportunity" button to open a form for adding a new opportunity.
 - Update Opportunity: Click the "Update" button next to an opportunity to open a form for updating opportunity details.
 - Delete Opportunity: Click the "Delete" button next to an opportunity to remove it from the list.
+
+### Routes
+
+The application uses React Router to manage navigation between different pages. Here are the available routes:
+
+- /: The home route which loads the SignUp component.
+- /login: The login route which loads the Login component.
+- /logout: The logout route which loads the Logout component.
+- /dashboard: The dashboard route which loads the Dashboard component, displaying an overview of performance and properties.
+- /clients: The clients route which loads the Clients component, allowing users to manage client information.
+- /opportunities: The opportunities route which loads the Opportunities component, allowing users to manage opportunity information.
 
 ### Additional features that could be added to the application
 
