@@ -20,8 +20,8 @@ function UpdateClient({ close }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updateForm),
       });
-      setUpdateForm({ _id: null, name: "", phone: "", email: "", tag: "" });
-      close();
+      setUpdateForm({ _id: null, name: "", phone: "", email: "", tag: "" }); // clear form
+      close(); //close after submit
     } catch (error) {
       console.error(error);
     }

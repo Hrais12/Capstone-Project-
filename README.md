@@ -1,12 +1,12 @@
 # Real Estate Management System
 
-A comprehensive Real Estate Management System built with React, designed for Agents to manage clients and opportunities efficiently. The application includes user authentication, client management, and opportunity tracking features.
+A full stack comprehensive Real Estate Management System built with React and Node.js, designed for Agents to manage clients and opportunities efficiently. The application includes user authentication, client management, opportunity, and performance tracking features.
 
 ![dashboard](image.png)
 
-![opportunities](image-2.png)
+![new-client](image-1.png)
 
-![add-client](image-1.png)
+![new-opportunity](image-2.png)
 
 ## Features
 

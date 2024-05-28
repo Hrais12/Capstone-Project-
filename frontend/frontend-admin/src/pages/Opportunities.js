@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { ListingContext } from "../App";
-import { Link } from "react-router-dom";
 
 import Nav from "../components/Nav";
 import Sidebar from "../components/Sidebar";
@@ -8,7 +7,6 @@ import Sidebar from "../components/Sidebar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdOutlineMoreHoriz } from "react-icons/md";
 
-import usePagination from "../util/usePagination";
 import AddOpportunity from "../components/AddOpportunity";
 import UpdateOpportunity from "../components/UpdateOpportunity";
 
@@ -18,17 +16,6 @@ function Opportunities() {
   const [openAddBtn, setOpenAddBtn] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-
-  const itemsPerPage = 10;
-  const {
-    currentPage,
-    totalPages,
-    currentItems,
-    pageNumber,
-    changePage,
-    nextPage,
-    prevPage,
-  } = usePagination(opportunities, itemsPerPage);
 
   const style = {
     fontSize: "2em",
@@ -70,7 +57,7 @@ function Opportunities() {
             <th>Closing Date</th>
           </thead>
           <tbody>
-            {currentItems.map((opportunity, index) => (
+            {opportunities.map((opportunity, index) => (
               <tr className="" key={opportunity._id}>
                 <td className="">{opportunity.name}</td>
                 <td className="">{opportunity.address}</td>
@@ -118,52 +105,6 @@ function Opportunities() {
             ))}
           </tbody>
         </table>
-
-        <nav>
-          <ul className="pagination">
-            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-              <Link
-                key="prevPage"
-                to="#"
-                className="page-link"
-                onClick={prevPage}
-              >
-                Prev
-              </Link>
-            </li>
-
-            {pageNumber.map((n, i) => (
-              <li
-                className={`page-item ${currentPage === n + 1 ? "active" : ""}`}
-                key={i}
-              >
-                <Link
-                  key={i}
-                  to="#"
-                  className="page-link"
-                  onClick={() => changePage(n + 1)}
-                >
-                  {n + 1}
-                </Link>
-              </li>
-            ))}
-
-            <li
-              className={`page-item ${
-                currentPage === totalPages ? "disabled" : ""
-              }`}
-            >
-              <Link
-                key="nextPage"
-                to="#"
-                className="page-link"
-                onClick={nextPage}
-              >
-                Next
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </div>
     </>
   );

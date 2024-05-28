@@ -52,7 +52,7 @@ function App() {
   // console.log(rentedThisYear);
 
   useEffect(() => {
-    //Calculate the number of properties rented this year
+    //array of properties rented this year
     const numProperties = () => {
       const currentYear = new Date().getFullYear();
       //   console.log(currentYear);
