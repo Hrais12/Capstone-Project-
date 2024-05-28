@@ -1,4 +1,3 @@
-import Modal from "react-modal";
 import { useState } from "react";
 import { useContext } from "react";
 import { ListingContext } from "../App";
@@ -17,8 +16,13 @@ import UpdateClient from "../components/UpdateClient";
 function Clients() {
   const { clients, setUpdateForm, setClients } = useContext(ListingContext);
 
+  // State to manage edit dropdown visibility
   const [openDropdown, setOpenDropdown] = useState(null);
+
+  // State to manage visibility of the add new client form
   const [openAddBtn, setOpenAddBtn] = useState(false);
+
+  // State to manage visibility of the update client info form
   const [showEditModal, setShowEditModal] = useState(false);
 
   const itemsPerPage = 10;
@@ -30,7 +34,7 @@ function Clients() {
     changePage,
     nextPage,
     prevPage,
-  } = usePagination(clients, itemsPerPage);
+  } = usePagination(clients, itemsPerPage); //custom pagination hook
 
   const style = {
     fontSize: "2em",
@@ -168,6 +172,7 @@ function Clients() {
       await fetch(`http://localhost:3000/client/${_id}`, {
         method: "DELETE",
       });
+      // Update the clients state after deletion
       const newContact = clients.filter((client) => client._id !== _id);
       setClients([...newContact]);
     } catch (error) {

@@ -14,7 +14,6 @@ function SignUp() {
     color: "grey",
   };
   const navigate = useNavigate();
-  const [signUp, setSignUp] = useState("Sign Up");
 
   const [users, setUsers] = useState([]);
 
@@ -52,7 +51,7 @@ function SignUp() {
     <div className="sign-container">
       <form className="signContainer" onSubmit={handleSubmit}>
         <div className="signHeader">
-          <div className="signText">{signUp}</div>
+          <div className="signText">Sign Up</div>
         </div>
 
         <div className="signInputs">

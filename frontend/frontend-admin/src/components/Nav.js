@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MdMenu, MdLogout } from "react-icons/md";
+import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { ListingContext } from "../App";
 
 function Nav() {
-  const { loggedUser, setLoggedUser } = useContext(ListingContext);
+  const { loggedUser } = useContext(ListingContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {

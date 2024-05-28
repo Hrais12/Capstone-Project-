@@ -1,4 +1,3 @@
-import React, { PureComponent } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 
 import { useContext } from "react";

@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { getOpportunities } from "./util/opportunities-api";
 import { getClients } from "./util/clients-api";
 
@@ -22,8 +22,10 @@ function App() {
 
   const [clients, setClients] = useState([]);
 
+  // State to store opportunities rented this year
   const [rentedThisYear, setRentedThisYear] = useState([]);
 
+  // State to manage the update form for clients:
   const [updateForm, setUpdateForm] = useState({
     _id: null,
     name: "",
@@ -32,6 +34,7 @@ function App() {
     tag: "",
   });
 
+  // State to manage the update form for opportunities:
   const [updateOppForm, setUpdateOppForm] = useState({
     _id: null,
     name: "",
@@ -43,33 +46,35 @@ function App() {
     expiringDate: "",
   });
 
+  // State to manage the logged in user information
   const [loggedUser, setLoggedUser] = useState(null);
-  const numProperties = () => {
-    const currentYear = new Date().getFullYear();
-    //   console.log(currentYear);
-    const totalRented = opportunities.filter((opportunity) => {
-      const closingDate = new Date(opportunity.closingDate);
-      return (
-        opportunity.status === "Rented" &&
-        closingDate.getFullYear() === currentYear
-      );
-    });
-
-    setRentedThisYear(totalRented);
-  };
 
   // console.log(rentedThisYear);
 
   useEffect(() => {
+    //Calculate the number of properties rented this year
+    const numProperties = () => {
+      const currentYear = new Date().getFullYear();
+      //   console.log(currentYear);
+      const totalRented = opportunities.filter((opportunity) => {
+        const closingDate = new Date(opportunity.closingDate);
+        return (
+          opportunity.status === "Rented" &&
+          closingDate.getFullYear() === currentYear
+        );
+      });
+
+      setRentedThisYear(totalRented);
+    };
     numProperties();
-  }, [opportunities]);
+  }, [opportunities]); //re-run effect when opportunities state changes
 
   useEffect(() => {
-    getClients(setClients);
+    getClients(setClients); // Fetch clients and update state
   }, [clients]);
 
   useEffect(() => {
-    getOpportunities(setOpportunities);
+    getOpportunities(setOpportunities); // Fetch opportunities and update state
   }, [opportunities]);
 
   return (
