@@ -14,13 +14,20 @@ import UpdateOpportunity from "../components/UpdateOpportunity";
 function Opportunities() {
   const { opportunities, setUpdateOppForm, setOpportunity } =
     useContext(ListingContext);
+
+  // State to manage visibility of the creat new opportunity form
   const [openAddBtn, setOpenAddBtn] = useState(false);
+
+  // State to manage visibility of the update opportunity info form
   const [showEditModal, setShowEditModal] = useState(false);
+
+  // State to manage edit dropdown visibility (if =null =>  close | if =index=> open for that specific index)
   const [openDropdown, setOpenDropdown] = useState(null);
 
   // State to manage sesarch input
   const [search, setSearch] = useState("");
 
+  //3 dot icon styling
   const style = {
     fontSize: "2em",
     cursor: "pointer",
@@ -35,7 +42,7 @@ function Opportunities() {
     top: "100px",
   };
 
-  // Filter the clients array to check if the opportunity's name,address,staus,or tag includes the search term
+  // Filter the opportunities array to check if the opportunity's name,address,staus,or tag includes the search term
   const results = opportunities.filter(
     (opportunity) =>
       opportunity.name.toLowerCase().includes(search.toLowerCase()) ||

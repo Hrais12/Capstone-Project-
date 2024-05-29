@@ -30,7 +30,7 @@ function UpdateOpportunity({ close }) {
         closingDate: "",
         expiringDate: "",
       });
-      close();
+      close(); //colse the form after submit
     } catch (error) {
       console.error(error);
     }

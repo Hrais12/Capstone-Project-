@@ -3,15 +3,7 @@ import { PieChart, Pie, Cell } from "recharts";
 import { useContext } from "react";
 import { ListingContext } from "../App";
 
-// function AvgClosed() {
-//   const { rentedThisYear } = useContext(ListingContext);
-
-//   const totalMonths = new Date().getMonth() + 1;
-//   const avgClosed = rentedThisYear / totalMonths;
-//   return (
-//     <div className="avgClosed">Average closed per month : {avgClosed}</div>
-//   );
-// }
+//pieChart variables
 
 const RADIAN = Math.PI / 180;
 
@@ -47,7 +39,7 @@ const AvgClosed = () => {
   const { rentedThisYear } = useContext(ListingContext);
 
   const totalMonths = new Date().getMonth() + 1; //start from 0 to 11 current-month+1
-  const avgClosed = rentedThisYear.length / totalMonths;
+  const avgClosed = rentedThisYear.length / totalMonths; //calculate average number of units closed per month
 
   const data = [
     { name: "Category A", value: 5, color: "#ff0000" },
@@ -83,7 +75,7 @@ const AvgClosed = () => {
         </Pie>
         {needle(value, data, cx, cy, iR, oR, "#d0d000")}
       </PieChart>
-      <div>{avgClosed} unit</div>
+      <div>{avgClosed} units</div>
     </div>
   );
 };

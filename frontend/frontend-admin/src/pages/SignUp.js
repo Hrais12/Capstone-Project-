@@ -7,6 +7,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function SignUp() {
+  //style icons
   const style = {
     fontSize: "2em",
     position: "absolute",
@@ -15,8 +16,10 @@ function SignUp() {
   };
   const navigate = useNavigate();
 
+  // State to manage all users data
   const [users, setUsers] = useState([]);
 
+  // State to manage new user data
   const [addUser, setAddUser] = useState({
     name: "",
     email: "",
@@ -35,7 +38,7 @@ function SignUp() {
     // 1. Create new user using post method
     const res = await axios.post("http://localhost:3000/signup", addUser);
     console.log(res);
-    navigate("/login");
+    navigate("/login"); // navigate to sign in page after successful registration
     // Axios Req -> POST (formData => {state})
     setUsers(() => [...users, res.user]);
     // This adds the new user to the rest of existing db.

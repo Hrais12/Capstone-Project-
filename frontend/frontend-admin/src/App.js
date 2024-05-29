@@ -17,9 +17,11 @@ import Logout from "./pages/Logout";
 export const ListingContext = createContext();
 
 function App() {
+  //State to manage all opportunities data
   const [opportunities, setOpportunities] = useState([]);
   // console.log(opportunities);
 
+  //State to manage all clients data
   const [clients, setClients] = useState([]);
 
   // State to store opportunities rented this year
@@ -46,9 +48,9 @@ function App() {
     expiringDate: "",
   });
 
-  // State to manage the logged in user information
+  // State to manage the logged in user name
   const [loggedUser, setLoggedUser] = useState(
-    localStorage.getItem("loggedUser")
+    localStorage.getItem("loggedUser") //to show the user name stored in the local storage after a succesful login
   );
 
   // console.log(rentedThisYear);
@@ -59,6 +61,7 @@ function App() {
       const currentYear = new Date().getFullYear();
       //   console.log(currentYear);
       const totalRented = opportunities.filter((opportunity) => {
+        //filter the opportunities that match the current year and rented status
         const closingDate = new Date(opportunity.closingDate);
         return (
           opportunity.status === "Rented" &&
@@ -72,11 +75,11 @@ function App() {
   }, [opportunities]); //re-run effect when opportunities state changes
 
   useEffect(() => {
-    getClients(setClients); // Fetch clients and update state
+    getClients(setClients); // Fetch all clients and update state
   }, [clients]);
 
   useEffect(() => {
-    getOpportunities(setOpportunities); // Fetch opportunities and update state
+    getOpportunities(setOpportunities); // Fetch all opportunities and update state
   }, [opportunities]);
 
   return (

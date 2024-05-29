@@ -6,6 +6,7 @@ import { ListingContext } from "../App";
 function AddClient({ close }) {
   const { clients, setClients } = useContext(ListingContext);
 
+  // State to manage add new client form
   const [addClient, setAddClient] = useState({
     name: "",
     phone: "",

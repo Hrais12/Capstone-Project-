@@ -6,6 +6,7 @@ import { ListingContext } from "../App";
 function AddOpportunity({ close }) {
   const { opportunities, setOpportunities } = useContext(ListingContext);
 
+  // State to manage create new opportunity form
   const [addOpportunity, setAddOpportunity] = useState({
     name: "",
     address: "",

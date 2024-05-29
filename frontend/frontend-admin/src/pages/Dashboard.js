@@ -1,5 +1,5 @@
 import React from "react";
-import Goal from "../components/Goal";
+
 import AvgClosed from "../components/AvgClosed";
 import NumProperties from "../components/NumProperties";
 import Rented from "../components/Rented";
@@ -19,7 +19,7 @@ function Dashboard() {
         </div>
         <div className="properties">
           <NumProperties />
-          <Goal />
+
           <Rented />
         </div>
       </div>

@@ -16,7 +16,7 @@ function Nav() {
 
     const res = await axios.post("http://localhost:3000/logout");
     console.log(res);
-    localStorage.clear(); //clear all the local storage
+    localStorage.clear(); //clear all the local storage after logout
     navigate("/logout");
   };
   return (

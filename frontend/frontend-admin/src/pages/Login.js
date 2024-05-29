@@ -18,6 +18,7 @@ function Login() {
   const { setLoggedUser } = useContext(ListingContext);
   const navigate = useNavigate();
 
+  //State to manage login user data
   const [logUser, setLogUser] = useState({
     email: "",
     password: "",
@@ -35,7 +36,7 @@ function Login() {
 
     const res = await axios.post("http://localhost:3000/login", logUser);
     console.log(res.data.user.name);
-    navigate("/dashboard");
+    navigate("/dashboard"); //navigate to dashboard after successful login
     setLoggedUser(res.data.user.name);
     localStorage.setItem("loggedUser", res.data.user.name); // store the user name in the browser after a successful login: localStorage("key",value)
     setLogUser({
