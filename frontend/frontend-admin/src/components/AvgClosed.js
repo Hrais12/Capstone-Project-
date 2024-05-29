@@ -46,7 +46,7 @@ const needle = (value, data, cx, cy, iR, oR, color) => {
 const AvgClosed = () => {
   const { rentedThisYear } = useContext(ListingContext);
 
-  const totalMonths = new Date().getMonth() + 1;
+  const totalMonths = new Date().getMonth() + 1; //start from 0 to 11 current-month+1
   const avgClosed = rentedThisYear.length / totalMonths;
 
   const data = [
@@ -62,7 +62,7 @@ const AvgClosed = () => {
 
   return (
     <div className="goal">
-      <h4>Average closed per month</h4>
+      <h4>Average Closed per Month</h4>
       <div></div>
       <PieChart width={400} height={120}>
         <Pie

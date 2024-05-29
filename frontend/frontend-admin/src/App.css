@@ -21,6 +21,7 @@ body{
   justify-content: space-between;
   padding: 0 30px 0 30px;
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  
 }
 
 .leftNav{
@@ -103,14 +104,15 @@ align-items: center;
 .sidebar{
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
-  
+  /* background-color: #263043; */
+  background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
 }
 
  .sidebarLink{
 
   text-decoration: none;
-  color: #9e9ea4;
+  color: #c6c6cc;
+  font-weight: bolder;
 
 }
 .sidebarListItem{
@@ -441,6 +443,10 @@ table .client-dropdown{
 margin: 5px;
 }
 
+.search-container{
+  display: flex;
+  justify-content: space-between;
+}
 /* END clients */
 
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { ListingContext } from "../App";
+import { IoIosSearch } from "react-icons/io";
 
 import Nav from "../components/Nav";
 import Sidebar from "../components/Sidebar";
@@ -23,22 +24,50 @@ function Clients() {
   // State to manage visibility of the update client info form
   const [showEditModal, setShowEditModal] = useState(false);
 
-  const style = {
+  const [search, setSearch] = useState("");
+
+  //3 dot icon styling
+  const dots = {
     fontSize: "2em",
     cursor: "pointer",
   };
+  const magnifire = {
+    position: "absolute",
+    left: "22.3em",
+    fontSize: "1.4em",
+    color: "grey",
+    top: "137px",
+  };
+
+  const results = clients.filter(
+    (client) =>
+      client.name.toLowerCase().includes(search.toLowerCase()) ||
+      client.phone.includes(search) ||
+      client.email.toLowerCase().includes(search.toLowerCase()) ||
+      client.tag.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
       <Nav />
       <Sidebar />
       <div className="clients">
-        <button
-          className="create-btn"
-          onClick={() => setOpenAddBtn(!openAddBtn)}
-        >
-          + Add New Client
-        </button>
+        <div className="search-container">
+          <input
+            type="search"
+            placeholder="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          ></input>
+          <IoIosSearch style={magnifire} />
+
+          <button
+            className="create-btn"
+            onClick={() => setOpenAddBtn(!openAddBtn)}
+          >
+            + Add New Client
+          </button>
+        </div>
         {openAddBtn && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -62,7 +91,7 @@ function Clients() {
             <th>Type</th>
           </thead>
           <tbody>
-            {clients.map((client, index) => (
+            {results.map((client, index) => (
               <tr className="">
                 <td className="">{client.name}</td>
                 <td className="">{client.phone}</td>
@@ -73,7 +102,7 @@ function Clients() {
                     setOpenDropdown(openDropdown === index ? null : index)
                   }
                 >
-                  <MdOutlineMoreHoriz style={style} />
+                  <MdOutlineMoreHoriz style={dots} />
                 </td>
                 {openDropdown === index && (
                   <div className="client-dropdown">
