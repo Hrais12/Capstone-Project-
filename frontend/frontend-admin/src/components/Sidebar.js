@@ -2,20 +2,13 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { BsHouseHeart } from "react-icons/bs";
-import { MdOutlineDashboard, MdContacts } from "react-icons/md";
+import { MdOutlineDashboard, MdContacts, MdSettings } from "react-icons/md";
 import { PiHandshake } from "react-icons/pi";
 
 function Sidebar() {
   return (
     <div className="sidebar">
       <ul>
-        <Link key="home" to="" className="sidebarLink">
-          <li className="sidebarListItem">
-            {" "}
-            <BsHouseHeart /> Home
-          </li>
-        </Link>
         <Link key="dashboard" to="/dashboard" className="sidebarLink">
           <li className="sidebarListItem">
             {" "}
@@ -32,6 +25,12 @@ function Sidebar() {
           <li className="sidebarListItem">
             {" "}
             <PiHandshake /> Opportunities
+          </li>
+        </Link>
+        <Link key="home" to="" className="sidebarLink">
+          <li className="sidebarListItem">
+            {" "}
+            <MdSettings /> Settings
           </li>
         </Link>
       </ul>

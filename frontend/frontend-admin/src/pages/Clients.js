@@ -23,7 +23,7 @@ function Clients() {
 
   // State to manage visibility of the update client info form
   const [showEditModal, setShowEditModal] = useState(false);
-
+  // State to manage sesarch input
   const [search, setSearch] = useState("");
 
   //3 dot icon styling
@@ -31,6 +31,7 @@ function Clients() {
     fontSize: "2em",
     cursor: "pointer",
   };
+  // search icon styling
   const magnifire = {
     position: "absolute",
     left: "22.3em",
@@ -39,6 +40,7 @@ function Clients() {
     top: "137px",
   };
 
+  // Filter the clients array to check if the client's name,email,phone ,or tag includes the search term
   const results = clients.filter(
     (client) =>
       client.name.toLowerCase().includes(search.toLowerCase()) ||

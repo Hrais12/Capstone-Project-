@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { ListingContext } from "../App";
+import { IoIosSearch } from "react-icons/io";
 
 import Nav from "../components/Nav";
 import Sidebar from "../components/Sidebar";
@@ -17,21 +18,52 @@ function Opportunities() {
   const [showEditModal, setShowEditModal] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
+  // State to manage sesarch input
+  const [search, setSearch] = useState("");
+
   const style = {
     fontSize: "2em",
     cursor: "pointer",
   };
+
+  // search icon styling
+  const magnifire = {
+    position: "absolute",
+    left: "20.5em",
+    fontSize: "1.4em",
+    color: "grey",
+    top: "100px",
+  };
+
+  // Filter the clients array to check if the opportunity's name,address,staus,or tag includes the search term
+  const results = opportunities.filter(
+    (opportunity) =>
+      opportunity.name.toLowerCase().includes(search.toLowerCase()) ||
+      opportunity.address.includes(search) ||
+      opportunity.status.toLowerCase().includes(search.toLowerCase()) ||
+      opportunity.tag.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <Nav />
       <Sidebar />
       <div className="opportunity">
-        <button
-          className="create-btn"
-          onClick={() => setOpenAddBtn(!openAddBtn)}
-        >
-          + Add Opportunity
-        </button>
+        <div className="search-container">
+          <input
+            type="search"
+            placeholder="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          ></input>
+          <IoIosSearch style={magnifire} />
+          <button
+            className="create-btn"
+            onClick={() => setOpenAddBtn(!openAddBtn)}
+          >
+            + Add Opportunity
+          </button>
+        </div>
         {openAddBtn && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -57,7 +89,7 @@ function Opportunities() {
             <th>Closing Date</th>
           </thead>
           <tbody>
-            {opportunities.map((opportunity, index) => (
+            {results.map((opportunity, index) => (
               <tr className="" key={opportunity._id}>
                 <td className="">{opportunity.name}</td>
                 <td className="">{opportunity.address}</td>

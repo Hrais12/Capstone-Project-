@@ -6,9 +6,9 @@ A full stack comprehensive Real Estate Management System built with React and No
 
 ![dashboard](image.png)
 
-![new-client](image-1.png)
+![alt text](image-1.png)
 
-![new-opportunity](image-2.png)
+![update-Opportunity](image-2.png)
 
 ## Features
 

@@ -47,7 +47,9 @@ function App() {
   });
 
   // State to manage the logged in user information
-  const [loggedUser, setLoggedUser] = useState(null);
+  const [loggedUser, setLoggedUser] = useState(
+    localStorage.getItem("loggedUser")
+  );
 
   // console.log(rentedThisYear);
 

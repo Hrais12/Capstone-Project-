@@ -26,7 +26,7 @@ function AddClient({ close }) {
     const res = await axios.post("http://localhost:3000/client", addClient);
     console.log(res);
     // Axios Req -> POST (formData => {state})
-    setClients(() => [...clients, res.client]);
+    setClients(() => [...clients, res.data.client]);
     // This adds the new contact to the rest of existing contacts in db.
     setAddClient({
       name: "",
@@ -35,7 +35,7 @@ function AddClient({ close }) {
       tag: "",
     });
     // to reset the form
-    close();
+    close(); //close form after submit
   };
 
   return (

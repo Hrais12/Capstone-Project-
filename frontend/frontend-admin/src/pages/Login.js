@@ -37,6 +37,7 @@ function Login() {
     console.log(res.data.user.name);
     navigate("/dashboard");
     setLoggedUser(res.data.user.name);
+    localStorage.setItem("loggedUser", res.data.user.name); // store the user name in the browser after a successful login: localStorage("key",value)
     setLogUser({
       email: "",
       password: "",
