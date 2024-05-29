@@ -53,8 +53,8 @@ The application uses React Router to manage navigation between different pages. 
 
 ### Additional features that could be added to the application
 
-- Search Functionality: Implement a search feature to allow users to quickly find specific clients or opportunities based on various criteria such as name, address, status
 - Document Management: upload and store documents related to clients and opportunities, such as contracts, agreements, and client records
+  \_ More features : clender, tasks, expenses tracking...
 
 ## GITHUB Link
 
