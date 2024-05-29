@@ -54,7 +54,7 @@ The application uses React Router to manage navigation between different pages. 
 ### Additional features that could be added to the application
 
 - Document Management: upload and store documents related to clients and opportunities, such as contracts, agreements, and client records
-  \_ More features : clender, tasks, expenses tracking...
+- More features : calendar, tasks, expenses tracking, ...
 
 ## GITHUB Link
 
